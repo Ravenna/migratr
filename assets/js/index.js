@@ -14,36 +14,21 @@ $(document).ready(function(){
 	///////////////////
 
 
-
 	// TODO
 	// Get Pages
 	// Loop over pages in both Prod and Stag arrays and output a list of links for the ones
 	// with the same slug
 	// Set links in loop to page.php?slug=foo&prodId=bar&stagId=bat
 
-
-
-	function getProductionPages(callback){
-		// Get Pages From Production
-
+	function getProdPages(){
 		$.ajax({
 			url: prod + 'pages/',
 			type: 'GET',
+			async: false,
 			success: function(data){
-				var prodPages = new Array();
 				$.each(data, function(index, page){
-
-					// Get id, slug and title
-					var newPage = new Page();
-					newPage.title = page.title;
-					newPage.slug = page.slug;
-					newPage.id = page.id;
-
-					// Add page to Array
-					prodPages.push(newPage);
+					$('#prod-pages-list').append('<li data-slug="'+ page.slug +'"><a href="page.php?slug='+ page.slug +'&prodID='+ page.id +'">'+ page.title.rendered +'</a></li>');
 				});
-				return prodPages;
-
 			},
 			error: function(){
 				alert('ERROR');
@@ -51,14 +36,30 @@ $(document).ready(function(){
 		});
 	}
 
+	function getStagPages(){
+		$.ajax({
+			url: stag + 'pages/',
+			type: 'GET',
+			async: false,
+			success: function(data){
+				$.each(data, function(index, page){
+					var li = $('#prod-pages-list').find('li[data-slug="'+ page.slug +'"]');
+					var href = li.find('a').attr('href');
+					if(href){
+						li.find('a').attr('href', href + '&stagID='+ page.id +'');
+					} else {
+						li.addClass('error');
+					}
+				});
+			},
+			error: function(){
+				alert('ERROR');
+			}
+		});
+	}
 
-	var pages = getProductionPages();
-
-	console.log(pages);
-
-	
-
-
+	getProdPages();
+	getStagPages();
 
 	
 });
