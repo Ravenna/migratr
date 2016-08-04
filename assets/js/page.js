@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+	$('.summernote').summernote();
+
+
 	///////////////////
 	// GLOBAL VARS
 	///////////////////
@@ -11,23 +14,31 @@ $(document).ready(function(){
 	///////////////////
 	// PAGE
 	///////////////////
-
-	var slug =  getUrlVars()['slug'];
+	var prodID =  getUrlVars()['prodID'];
+	var stagID =  getUrlVars()['stagID'];
 	
 
 	// Get Production
-	$.get( prod +'pages/', function(data){
-		console.log(data);
-		$.each(data, function(index, page){
-			$('#prod-pages-list').append('<li data-id="'+ page.id +'"><a href="page.php/?slug='+ page.slug +'"">'+ page.title.rendered +'</a></li>');
-		});
-
+	$.get( prod +'pages/' + prodID, function(data){
+			console.log(data);
+			var prodWrap = $('#page-production');
+			console.log(data.title.rendered);
+			prodWrap.find('p.last-updated span').text(data.modified);
+			prodWrap.find('input.title').val(data.title.rendered);
+			$('#page-production .summernote').summernote('code', data.content.rendered);
 	});
 
 
 
-	// GET STAGING
-
+	// Get Staging
+	$.get( stag +'pages/' + stagID, function(data){
+			console.log(data);
+			var prodWrap = $('#page-staging');
+			console.log(data.title.rendered);
+			prodWrap.find('p.last-updated span').text(data.modified);
+			prodWrap.find('input.title').val(data.title.rendered);
+			$('#page-staging .summernote').summernote('code', data.content.rendered);
+	});
 
 	
 });

@@ -8,5 +8,8 @@
 	<script src="https://use.fontawesome.com/4f0d31193d.js"></script>
 
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	
+	<!-- include summernote css/js-->
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
 </head>
 <body>
