@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-5">
 			<!-- STAGING -->
 
 			<h3>Staging</h3>
@@ -21,7 +21,23 @@
 			</div>
 		</div>
 
-		<div class="col-sm-6">
+		<div class="col-sm-2 move-buttons">
+			<div class="title-move">
+				<div class="btn-group" role="group" aria-label="Move Content">
+					<button type="button" class="btn btn-default"><i class="fa fa-chevron-left"></i></button>
+					<button type="button" class="btn btn-default"><i class="fa fa-chevron-right"></i></button>
+				</div>
+			</div>
+
+			<div class="content-move">
+				<div class="btn-group" role="group" aria-label="Move Content">
+					<button type="button" class="btn btn-default"><i class="fa fa-chevron-left"></i></button>
+					<button type="button" class="btn btn-default"><i class="fa fa-chevron-right"></i></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-5">
 			<!-- PRODUCTION -->
 
 			<h3>Production</h3>

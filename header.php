@@ -11,5 +11,7 @@
 	
 	<!-- include summernote css/js-->
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+
+	<link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
