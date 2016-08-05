@@ -2,4 +2,4 @@
 *.json
 .sass-cache
 .codekit-cache
-.DS_Store
+*.DS_Store
