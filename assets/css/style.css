@@ -9,3 +9,6 @@ body {
 
 .content-move {
   margin-top: 150px; }
+
+textarea.form-control {
+  height: 400px; }
